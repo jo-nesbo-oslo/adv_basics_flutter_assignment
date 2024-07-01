@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -13,19 +11,34 @@ class QuestionsSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
+      width: double.infinity,
       child: SingleChildScrollView(
         child: Column(
           children: summaryData.map(
             (data) {
               return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    ((data['question_index'] as int) + 1).toString(),
-                    style: GoogleFonts.lato(
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(20),
+                    width: 50,
+                    height: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: data['user_answer'] == data['correct_answer']
+                          ? const Color.fromARGB(255, 101, 173, 218)
+                          : const Color.fromARGB(255, 172, 38, 139),
+                    ),
+                    child: Text(
+                      ((data['question_index'] as int) + 1).toString(),
+                      style: GoogleFonts.lato(
                         color: const Color.fromARGB(255, 103, 3, 142),
                         fontSize: 20,
-                        backgroundColor: Colors.white),
-                    textAlign: TextAlign.center,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Expanded(
                     child: Column(

@@ -75,7 +75,7 @@ class _QuizState extends State<Quiz> {
           gradient: LinearGradient(
             colors: [
               Color.fromARGB(255, 28, 3, 72),
-              Color.fromARGB(79, 30, 163, 1)
+              Color.fromARGB(79, 67, 6, 98)
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
